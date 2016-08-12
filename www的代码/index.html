@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=4, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!--公共css-->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <!--功能模块css-->
+    <link href="css/guidePage/guidePage.css" rel="stylesheet">
+    <link href="css/home/home.css" rel="stylesheet">
+    <link href="css/category/category.css" rel="stylesheet">
+    <link href="css/goodsList/goodsList.css" rel="stylesheet">
+    <link href="css/details/details.css" rel="stylesheet">
+    <link href="css/cart/cart.css" rel="stylesheet">
+    <link href="css/account/account.css" rel="stylesheet">
+
+
+    <link href="lib/Swiper/dist/css/swiper.css" rel="stylesheet">
+    <script src="lib/jquery/dist/jquery.js"></script>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!--全局文件 -->
+    <script src="js/app.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/global.js"></script>
+    <script src="areas/common/common.js"></script>
+    <script src="areas/common/indexdb.js"></script>
+
+
+    <!--功能模块js-->
+    <script src="areas/guidePage/guidePage_controller.js"></script>
+    <script src="areas/guidePage/guidePage_route.js"></script>
+    <script src="areas/guidePage/guidePage_service.js"></script>
+    <script src="areas/tab/tab_controller.js"></script>
+    <script src="areas/tab/tab_route.js"></script>
+    <script src="areas/home/home_controller.js"></script>
+    <script src="areas/home/home_route.js"></script>
+    <script src="areas/home/home_service.js"></script>
+    <script src="areas/category/category_controller.js"></script>
+    <script src="areas/category/category_route.js"></script>
+    <script src="areas/category/category_service.js"></script>
+    <script src="areas/goodsList/goodsList_controller.js"></script>
+    <script src="areas/goodsList/goodsList_route.js"></script>
+    <script src="areas/goodsList/goodsList_service.js"></script>
+    <script src="areas/details/details_controller.js"></script>
+    <script src="areas/details/details_service.js"></script>
+    <script src="areas/details/details_route.js"></script>
+    <script src="areas/cart/cart_controller.js"></script>
+    <script src="areas/cart/cart_service.js"></script>
+    <script src="areas/cart/cart_route.js"></script>
+    <script src="areas/account/account_controller.js"></script>
+    <script src="areas/account/account_service.js"></script>
+    <script src="areas/account/account_route.js"></script>
+
+
+
+    <!--第三方插件js-->
+    <script src="lib/Swiper/dist/js/swiper.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/ionic-image-lazy-load/ionic-image-lazy-load.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+
+  </head>
+  <body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <!--<ion-nav-bar class="bar-stable">-->
+      <!--<ion-nav-back-button>-->
+      <!--</ion-nav-back-button>-->
+    <!--</ion-nav-bar>-->
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+    <!--<div ng-view></div>-->
+    <!--<div ui-view></div>-->
+  </body>
+</html>

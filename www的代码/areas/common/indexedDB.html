@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+indexedDB学习
+</body>
+<script>
+
+  // 获取indexdb对象,为了兼容性的写法
+  // 1、获取对象
+  window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+  window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+  window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+  window.IDBCursor = window.IDBCursor || window.webkitIDBCursor || window.msIDBCursor;
+
+
+  // 2、定义数据库的基本信息
+  var dbInfo = {
+    dbName: 'aptdb',
+    dbVersion: 2010, //用小数会四舍五入，版本号只能越来越大
+    dbInstance: {},
+  };
+
+
+  // 3、创建数据库
+  var dbContent = window.indexedDB.open(dbInfo.dbName, dbInfo.dbVersion);
+
+
+  // 当数据库版本初始化或者升级的的时候出触发的函数，如果数据库名称和版本号没有发生变化，
+  // 当调用完毕之后会自动走onsuccess回调函数
+  dbContent.onupgradeneeded = function (e) {
+
+    console.log(e);
+
+    // 4、创建数据库store(表)
+    var _db = e.target.result;
+    // 获取该数据库中所有的表名称
+    var storeNames = _db.objectStoreNames;
+
+    if (!storeNames.contains("cart")) {
+      // 创建一个表结构出来
+      _db.createObjectStore("cart", {
+        keyPath: "goodsId", //相当于关系型数据库中的主键，这个属性必须有
+        // autoIncrement: true
+      });
+    }
+
+  }
+
+  // 成功连接的时候触发的回调函数,这里面是增删该查的操作
+  dbContent.onsuccess = function (e) {
+
+    // 5、开启事物,用事物去创建表
+    var _db = e.target.result;
+    var trans = _db.transaction(["cart"], "readwrite")
+    var store = trans.objectStore("cart")
+
+    // 虽然可以在一次成功打开请求的操作中同时操作多次增删改查命令，但是不推荐，以为这样前面的操作就不能被监听到了
+
+    // 6、增删该查操作
+
+    //（1）增加数据
+//    var req=store.add({
+//      goodsId:'EBC005',
+//      prise:12.3,
+//      name:"衣服",
+//      size:"M",
+//      age:99
+//    })
+
+    // (2)删除数据
+//    var req = store.delete("EBC003");
+
+    // （3）修改数据
+//    var req = store.put({
+//      goodsId: 'EBC002',
+//      prise: 12.3,
+//      name: "玩具",
+//      size: "g"
+//    })
+
+    // （4）查询数据
+//    var req = store.get("EBC005");
+
+    // (5)删除所有数据
+//    var req = store.clear();
+
+//
+//    req.onsuccess=function(e){
+//      console.log(e);
+//      console.log(e.target.result)
+//
+//    }
+//
+//    req.onerror=function(e){
+//
+//    }
+
+
+    // (6)查询所有数据（用了游标）
+    var cursor=store.openCursor();
+    var data=[];
+
+    cursor.onsuccess=function(e){
+      var result = e.target.result;
+      if (result && result !== null) {
+        data.push(result.value);
+        // 重新执行onsuccess句柄
+        result.continue();
+      }
+      console.log(data);
+    }
+
+    cursor.onerror=function(){
+
+    }
+
+  }
+
+  // 失败的时候触发的回调函数
+  dbContent.onerror = function (e) {
+    console.log(3);
+  }
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

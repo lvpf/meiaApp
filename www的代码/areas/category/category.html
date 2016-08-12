@@ -1,0 +1,62 @@
+<ion-view id="category" view-title="商品分类" hide-back-button="true" cache-view="false">
+  <ion-content class="scroll-content  has-header" scroll="false">
+    <header id="header">
+       <!--  <div class="header-left" ng-click="func_goBack()">
+          <span></span>
+        </div> -->
+      <a class="header-center" ng-href="#">
+        <span></span>
+      </a>
+      <div class="header-right">
+        <span></span>
+      </div>
+    </header>
+    <nav id="nav">
+      <ul>
+        <li ng-class="$index==0?'nav-current':'nav-blur'" ng-repeat="item in categoryData"  ng-click="categoryLeftClick($event);getCategoryDetailData(item.typeNumber)">{{item.name}}</li>
+      </ul>
+    </nav>
+    <div id="pro">
+      <ion-content lazy-scroll>
+        <div class="pro-scroll">
+          <div class="pro-warp">
+            <div class="banner" >
+            <img ng-src="{{categoryHeader}}" alt="">   
+            </div>
+            <div class="content">
+              <div class="content-title">
+                <span>出众</span>
+              </div>
+              <div class="content-body">
+                <li class="content-body-list" ng-repeat="item in categoryDetailData" ui-sref="goodsList({typeNumber:{{item.typeNumber}}})">
+                  <img image-lazy-src="{{item.src}}" alt="" image-lazy-loader="bubbles">
+                  <span>{{item.name}}</span>
+                </li>
+              </div>
+              <div class="content-title">
+                <span>夏季新品</span>
+              </div>
+              <div class="content-body">
+                <li class="content-body-list" ng-repeat="item in categoryDetailData">
+                  <img image-lazy-src="{{item.src}}" alt="" image-lazy-loader="ios">
+                  <span>{{item.name}}</span>
+                </li>
+              </div>
+            </div>
+            <div class="content-title">
+              <span>测试图片延迟加载</span>
+            </div>
+            <div class="content-body">
+              <li class="content-body-list">
+                <img image-lazy-src=" http://s8.mogucdn.com/p2/160803/iz_2lbl0ajj1bace04e3aa8lfjj6h298_130x150.jpg" alt="" image-lazy-loader="bubbles">
+                <span>test</span>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+
+    </div>
+  </ion-content>
+</ion-view>
+

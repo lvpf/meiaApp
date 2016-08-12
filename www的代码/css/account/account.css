@@ -1,0 +1,59 @@
+#account .light-bg{
+  background-color: #FFFFFF;
+}
+
+#account ion-content{
+  background-color: #E4E1E1;
+}
+#account .item{
+  background-color: #EFEFEF;
+}
+#accountbar {
+  background-color: #ff5777 ;!important
+
+  }
+
+#account img{
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  z-index: 100;
+}
+#accountbar h1{
+  color:#fff;
+}
+.ion-qr-scanner,.ion-android-textsms,.ion-android-,.ion-android-settings,.ion-android-call{
+  position: absolute;
+  right: 20px;
+  font-size: 28px;
+  color: #ff5777 ;!important
+}
+.ion-heart{
+  color: #ff5777 ;!important
+
+}
+
+
+#account #info span{
+  display: inline-block;
+  vertical-align:top;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  line-height:100px;
+}
+
+#account .version{
+  float: right;
+  right: 5px;
+}
+.button{
+      color: #fff;
+}
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<ion-view id="account" view-title="我的" hide-back-button="true" cache-view="false">
+  <ion-header-bar class="bar" id="accountbar">
+    <h1 class="title">我的账户</h1>
+  </ion-header-bar>
+  <ion-content scroll="false">
+    <div class=".light-bg padding-top padding-bottom">
+      <label id="info" class=" item item-icon-right" ng-click="func_showAction()">
+        <img  id="touxiang" src="img/account/account.jpg" >
+        <span class="ion-heart"> lvpf</span>
+        <i class="icon ion-ios-arrow-right ion-android-image"></i>
+      </label>
+    </div>
+    <div class="list">
+      <div class="item .light-bg padding-top" ng-click="func_barcode()">
+        <label>扫描二维码{{ma}}
+          <i class="ion-qr-scanner"></i>
+        </label>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right" ng-click="func_sms()">
+        <label>发短信
+          <i class="ion-android-textsms"></i>
+        </label>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>关于美啊
+          <i class="icon ion-ios-arrow-right"></i>
+        </label>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right" ng-click="func_callPhone('88889999')">
+        <label>联系我们</label>
+        <a class="telephone ion-android-call" href="tel:88889999"></a>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>设置</label>
+        <i class="ion-android-settings"></i>
+      </div>
+    </div>
+    <div class="padding-top">
+      <button class="button button-block " id="accountbar" ng-click="func_exitApp()">退出登录</button>
+    </div>
+  </ion-content>
+
+</ion-view>
+
+
